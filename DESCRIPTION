@@ -1,12 +1,17 @@
 Package: TOPmetadata
 Title: A package to add air quality station meta data.
 Version: 0.0.0.9000
-Authors@R: 
-    c(person("Mario", "Gavidia-Calderón", "mario.calderon@iag.usp.br", 
-             role = c("aut", "cre"),
-             comment = c(ORCID = "0000-0002-7371-1116")),
-      person("Thiago", "Nogueira","first.last@example.com", 
-             role = c("aut", "ctb")))
+Authors@R: c(
+    person(given = "Mario",
+           family = "Gavidia-Calderón",
+           email = "mario.calderon@iag.usp.br", 
+           role = c("aut", "cre"),
+           comment = c(ORCID = "0000-0002-7371-1116")),
+    person(given = "Thiago", 
+           family = "Nogueira",
+           email = "first.last@example.com", 
+           role = c("aut", "ctb"))
+           )
 Description: This package helps you to add air quality station meta data 
     in TOP format.
 License: MIT + file LICENSE
