@@ -2,10 +2,9 @@
 #'
 #' @param df A data frame with date and pollutant data.
 #' @param pol Pollutant column name
+#' @param aqs_meta A vector with key value pairs.
 #' @param date_format  The format of date data. Default is "%Y-%m-%d %H:%M".
 #' @param date_col Name of column with date data.
-#' @param aqs_meta A vector with key value pairs.
-#' @param from_here Get local information from your pc.
 #' @param csv_path Path to save the csv file. Default is working directory.
 #'
 #' @return csv file
@@ -28,7 +27,7 @@
 #'             csv_path = "~/")
 #' }
 add_met_data <- function(df, pol, aqs_meta, date_format = "%Y-%m-%d %H:%M",
-                         date_col = "date", from_here=TRUE, csv_path=getwd()){
+                         date_col = "date", csv_path=getwd()){
   # Tranforming date to require format
   df_date <- transform_date_format(df, date_format, date_col)
   df <- df_date[, c("date", pol)]
