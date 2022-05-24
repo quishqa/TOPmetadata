@@ -105,7 +105,7 @@ Timeshift_from_UTC:-03;
 
 Here is a template to "fill in the blanks":
 
-```
+```R
 aqs_meta <- c(
   "Station_id" = "",
   "Station_country" = "",
