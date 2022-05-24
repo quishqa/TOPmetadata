@@ -1,10 +1,14 @@
 Package: TOPmetadata
-Title: What the Package Does (One Line, Title Case)
+Title: A package to add air quality station meta data.
 Version: 0.0.0.9000
 Authors@R: 
-    person("First", "Last", , "first.last@example.com", role = c("aut", "cre"),
-           comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: What the package does (one paragraph).
+    c(person("Mario", "Gavidia-Calderón", "mario.calderon@iag.usp.br", 
+             role = c("aut", "cre"),
+             comment = c(ORCID = "0000-0002-7371-1116")),
+      person("Thiago", "Nogueira","first.last@example.com", 
+             role = c("aut", "ctb")))
+Description: This package helps you to add air quality station meta data 
+    in TOP format.
 License: `use_mit_license()`, `use_gpl3_license()` or friends to pick a
     license
 Encoding: UTF-8

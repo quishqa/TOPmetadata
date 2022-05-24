@@ -1,3 +1,20 @@
+#' Add air quality station meta data to pollutant data
+#'
+#' @param df A data frame with date and pollutant data.
+#' @param pol Pollutant column name
+#' @param date_format  The format of date data. Default is "%Y-%m-%d %H:%M".
+#' @param date_col Name of column with date data.
+#' @param id Air quality station id code.
+#' @param from_here Get local information from your pc.
+#' @param csv_path Path to save the csv file. Default is working directory.
+#'
+#' @return csv file
+#' @export
+#'
+#' @examples
+#' \dontrun{
+#' add_met_data(df, "o3", "%Y-%m-%d %H:%M", "date", aqs_code)
+#' }
 add_met_data <- function(df, pol, date_format, date_col, id, from_here=TRUE,
                          csv_path=getwd()){
   # Tranforming date to require format
