@@ -36,6 +36,7 @@ add_met_data <- function(df, pol, date_format, date_col, id, from_here=TRUE,
   }
   cat(paste0("\"Time; value\"", toupper(pol), "\n"), file = file_name,
       append = TRUE)
-  write.table(df, file_name, sep=";", row.names = FALSE, col.names = FALSE,
-              append = TRUE)
+  utils::write.table(df, file_name, sep=";", row.names = FALSE, col.names = FALSE,
+                     append = TRUE)
+  message(paste(file_name), "was created")
 }

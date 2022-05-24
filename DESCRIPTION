@@ -1,5 +1,5 @@
 Package: TOPmetadata
-Title: A package to add air quality station meta data.
+Title: A package to add air quality station meta data
 Version: 0.0.0.9000
 Authors@R: c(
     person(given = "Mario",
