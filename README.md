@@ -54,8 +54,8 @@ We'll write the file in `home` folder (`~/`)
 
 ```R
 # Writing meta data
-add_met_data(pin_o3, pol = pol_code, date_format = "%Y-%m-%d %H:%M", 
-             date = "date", id = aqs_code, csv_path = "~/")
+add_meta_data(pin_o3, pol = pol_code, date_format = "%Y-%m-%d %H:%M", 
+              date = "date", id = aqs_code, csv_path = "~/")
 ```
 
 Which create the file `O3_Pinheiros_2021_2021.csv` (`POL_aqs_start-year_end_year.csv`).
