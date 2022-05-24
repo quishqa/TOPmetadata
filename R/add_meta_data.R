@@ -2,7 +2,7 @@ add_met_data <- function(df, pol, date_format, date_col, id, from_here=TRUE,
                          csv_path=getwd()){
   # Tranforming date to require format
   df_date <- transform_date_format(df, date_format, date_col)
-  df <- df[, c("date", pol)]
+  df <- df_date[, c("date", pol)]
 
   # Creating file_name
   start_year <- regmatches(df$date[1], regexpr("[0-9]{4}", df$date[1]))
@@ -17,7 +17,8 @@ add_met_data <- function(df, pol, date_format, date_col, id, from_here=TRUE,
     add_header_line(file_name, "Station_timezone", Sys.timezone())
     add_header_line(file_name, "Timeshift_from_UTC", as.POSIXlt(Sys.time())$zone)
   }
-  cat(paste0("\"Time; value\"", toupper(pol), "\n"), file = file_name)
+  cat(paste0("\"Time; value\"", toupper(pol), "\n"), file = file_name,
+      append = TRUE)
   write.table(df, file_name, sep=";", row.names = FALSE, col.names = FALSE,
               append = TRUE)
 }
