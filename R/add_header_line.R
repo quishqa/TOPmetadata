@@ -8,10 +8,10 @@
 #' @return meta data in header
 #' @noRd
 #' @keywords internal
-add_header_line <- function(file_name, attribute, value, append=TRUE){
-  if (!append){
+add_header_line <- function(file_name, attribute, value){
+  if (attribute == "Station_id"){
     cat(paste0(attribute, ":", value, ";\n"), file=file_name)
   } else {
-    cat(paste0(attribute, ":", value, ";\n"), file=file_name, append=append)
+    cat(paste0(attribute, ":", value, ";\n"), file=file_name, append=TRUE)
   }
 }

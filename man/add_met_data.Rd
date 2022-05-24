@@ -7,9 +7,9 @@
 add_met_data(
   df,
   pol,
-  date_format,
-  date_col,
-  id,
+  aqs_meta,
+  date_format = "\%Y-\%m-\%d \%H:\%M",
+  date_col = "date",
   from_here = TRUE,
   csv_path = getwd()
 )
@@ -19,11 +19,11 @@ add_met_data(
 
 \item{pol}{Pollutant column name}
 
+\item{aqs_meta}{A vector with key value pairs.}
+
 \item{date_format}{The format of date data. Default is "\%Y-\%m-\%d \%H:\%M".}
 
 \item{date_col}{Name of column with date data.}
-
-\item{id}{Air quality station id code.}
 
 \item{from_here}{Get local information from your pc.}
 
@@ -37,6 +37,18 @@ Add air quality station meta data to pollutant data
 }
 \examples{
 \dontrun{
-add_met_data(df, "o3", "\%Y-\%m-\%d \%H:\%M", "date", aqs_code)
+library(Dict)
+pin_o3 <- readRDS("~/R_tests/pin_meta_test.rds")
+pin_meta <- c(
+  "Station_id" = "0001",
+  "Station_country" = "Brazil",
+  "Station_city" = "Sao Paulo",
+  "Station_name" = "Pinheiros",
+  "Station_timezone" = Sys.timezone(),
+  "Timeshift_from_UTC" = as.POSIXlt(Sys.time())$zone
+)
+
+add_met_data(pin_o3, "o3", "\%Y-\%m-\%d \%H:\%M", "date", pin_meta,
+            csv_path = "~/")
 }
 }
