@@ -58,7 +58,7 @@ add_met_data(pin_o3, pol = pol_code, date_format = "%Y-%m-%d %H:%M",
              date = "date", id = aqs_code, csv_path = "~/")
 ```
 
-Which create this file:
+Which create the file `O3_Pinheiros_2021_2021.csv` (`POL_aqs_start-year_end_year.csv`).
 ```
 Station_id:Pinheiros;
 Station_timezone:America/Sao_Paulo;
