@@ -23,7 +23,7 @@ library(qualR)
 library(TOPmetadata)
 
 pol_code <- "o3"
-aqs_code <- "Pinheiros"
+aqs_code <- 99
 start_date <- "01/01/2021"
 end_date <- "31/01/2021"
 
@@ -49,27 +49,56 @@ date o3       aqs
 6 2021-01-01 05:00:00 20 Pinheiros
 ```
 
-Now, we write the meta data header using `add_met_data` function. 
-We'll write the file in `home` folder (`~/`)
+Now, we write the meta data header using `add_meta_data` function. 
+We'll write the file in `home` folder (`~/`). 
+The `add_meta_data` required the `aqs_meta` input which is a vector with key
+value pairs with the air quality metadata.
+We'll also use some information from our session and from `qualR` datasets to
+complete the metadata like this:
+
+```R
+pin_meta <- c(
+    "Station_id" = "BR01",
+    "Station_country" = "Brazil",
+    "Station_Local_id" = aqs_code,
+    "Station_city" = "São Paulo",
+    "Station_name" = cetesb_aqs$name[cetesb_aqs$code == aqs_code],
+    "Station_timezoen" = Sys.timezone(),
+    "Station_lon" = cetesb_aqs$lon[cetesb_aqs$code == aqs_code],
+    "Station_lat" = cetesb_aqs$lat[cetesb_aqs$code == aqs_code],
+    "Timeshift_from_utc" = as.POSIXlt(Sys.time())$zone
+)
+```
 
 ```R
 # Writing meta data
-add_meta_data(pin_o3, pol = pol_code, date_format = "%Y-%m-%d %H:%M", 
-              date = "date", id = aqs_code, csv_path = "~/")
+add_meta_data(pin_o3, "o3", pin_meta,  date_format = "%Y-%m-%d %H:%M", 
+              date = "date", csv_path = "~/")
 ```
 
-Which create the file `O3_Pinheiros_2021_2021.csv` (`POL_aqs_start-year_end_year.csv`).
+Which create the file `O3_BR01_2021_2021.csv` (`POL_Station_id_start-year_end_year.csv`).
+
 ```
-Station_id:Pinheiros;
+Station_id:BR01;
+Station_country:Brazil;
+Station_Local_id:99;
+Station_city:Sao Paulo;
+Station_name:Pinheiros;
 Station_timezone:America/Sao_Paulo;
+Station_lon:-46.7020165084763;
+Station_lat:-23.5614598947311;
 Timeshift_from_UTC:-03;
-"Time; value"O3
+"Time; value";O3
 "01/01/2021 00:00";NA
 "01/01/2021 01:00";28
 "01/01/2021 02:00";24
 "01/01/2021 03:00";18
 "01/01/2021 04:00";13
 "01/01/2021 05:00";20
+"01/01/2021 06:00";31
+"01/01/2021 07:00";25
+"01/01/2021 08:00";27
+"01/01/2021 09:00";28
 
 ```
 
