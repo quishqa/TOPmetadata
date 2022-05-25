@@ -10,7 +10,6 @@ add_met_data(
   aqs_meta,
   date_format = "\%Y-\%m-\%d \%H:\%M",
   date_col = "date",
-  from_here = TRUE,
   csv_path = getwd()
 )
 }
@@ -24,8 +23,6 @@ add_met_data(
 \item{date_format}{The format of date data. Default is "\%Y-\%m-\%d \%H:\%M".}
 
 \item{date_col}{Name of column with date data.}
-
-\item{from_here}{Get local information from your pc.}
 
 \item{csv_path}{Path to save the csv file. Default is working directory.}
 }
