@@ -48,6 +48,6 @@ add_met_data <- function(df, pol, aqs_meta, date_format = "%Y-%m-%d %H:%M",
   cat(paste0("\"Time; value\";", toupper(pol), "\n"), file = file_name,
       append = TRUE)
   utils::write.table(df, file_name, sep=";", row.names = FALSE,
-                     col.names = FALSE, append = TRUE)
+                     col.names = FALSE, append = TRUE, quote = FALSE)
   message(paste(file_name), " was created")
 }
