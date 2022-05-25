@@ -13,7 +13,7 @@ Authors@R: c(
            role = c("aut", "ctb"))
            )
 Description: This package helps you to add air quality station meta data 
-    in TOP format.
+    at the top of the exported csv pollutation data.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
