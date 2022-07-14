@@ -37,7 +37,7 @@ add_met_data <- function(df, pol, aqs_meta, date_format = "%Y-%m-%d %H:%M",
   end_year <- regmatches(df$date[nrow(df)],
                          regexpr("[0-9]{4}", df$date[nrow(df)]))
   file_name <- paste0(toupper(pol), "_", aqs_meta["Station_id"], "_",
-                      start_year, "_", end_year, ".csv")
+                      start_year, "-", end_year, ".dat")
   file_name <- paste0(csv_path, "/", file_name)
 
   # Adding attributes
