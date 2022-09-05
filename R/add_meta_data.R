@@ -32,7 +32,7 @@ add_meta_data <- function(df, pol, aqs_meta, date_format = "%Y-%m-%d %H:%M",
   df_date <- transform_date_format(df, date_format, date_col)
   df <- df_date[, c("date", pol)]
 
-  if (nrow(df) == 0){
+  if (nrow(df) == 0 | nrow(df) == sum(is.na(df[pol]))){
     message("No data in this station")
   } else {
     # Creating file_name
