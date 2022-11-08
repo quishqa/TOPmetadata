@@ -40,7 +40,7 @@ add_meta_data <- function(df, pol, aqs_meta, date_format = "%Y-%m-%d %H:%M",
     end_year <- regmatches(df$date[nrow(df)],
                            regexpr("[0-9]{4}", df$date[nrow(df)]))
     file_name <- paste0(toupper(pol), "_", aqs_meta["Station_id"], "_",
-                        start_year, "-", end_year, ".dat")
+                        start_year, "-", end_year, ".csv")
     file_name <- paste0(csv_path, "/", file_name)
 
     # Adding attributes
@@ -48,7 +48,7 @@ add_meta_data <- function(df, pol, aqs_meta, date_format = "%Y-%m-%d %H:%M",
     for (key in names(aqs_meta)){
       add_header_line(file_name, key, aqs_meta[key])
     }
-    cat(paste0("\"Time; value\";", "\n"), file = file_name,
+    cat(paste0("Time;Value\n"), file = file_name,
         append = TRUE)
     utils::write.table(df, file_name, sep=";", row.names = FALSE,
                        col.names = FALSE, append = TRUE, quote = FALSE)

@@ -10,8 +10,8 @@
 #' @keywords internal
 add_header_line <- function(file_name, attribute, value){
   if (attribute == "Station_id"){
-    cat(paste0(attribute, ":", value, ";\n"), file=file_name)
+    cat(paste0("#", attribute, ": ", value, "\n"), file=file_name)
   } else {
-    cat(paste0(attribute, ":", value, ";\n"), file=file_name, append=TRUE)
+    cat(paste0("#", attribute, ": ", value, "\n"), file=file_name, append=TRUE)
   }
 }
